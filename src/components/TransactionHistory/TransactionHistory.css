@@ -1,0 +1,17 @@
+.hr {
+  height: 1px;
+  background-color: grey;
+  width: 100%;
+}
+
+#t-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.card-item {
+  padding: 0px 5px;
+  text-transform: capitalize;
+}

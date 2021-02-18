@@ -1,18 +1,28 @@
+import { useContext } from "react";
+import { RootContext } from "../../App";
 import "./IncomeExpenseCard.css";
 
-const IncomeExpenseCard = (props) => {
-  const { totalIncome, totalExpense } = props;
+/*
+ context using in functional component
+ */
+const IncomeExpenseCard = () => {
+  const state = useContext(RootContext);
+  // nested array destructuring with default values
+  const {
+    income: [totalIncome = 0, setTotalIncome = {}],
+    expense: [totalExpense = 0, setTotalExpense = {}],
+  } = state;
 
   return (
     <div className="container">
       <div id="card">
         <div className="cardItem">
           <p>INCOME</p>
-          <p id="income">{totalIncome && totalIncome}</p>
+          <p id="income">{totalIncome}</p>
         </div>
         <div className="cardItem">
           <p>EXPENSE</p>
-          <p id="expense">{totalExpense && totalExpense}</p>
+          <p id="expense">{totalExpense}</p>
         </div>
       </div>
     </div>
