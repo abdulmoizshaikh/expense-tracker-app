@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import BalanceInquiry from "./components/BalanceInquiry/BalanceInquiry";
+import AddTransaction from "./containers/AddTransaction/AddTransaction";
+import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
+import "./App.css";
+import IncomeExpenseCard from "./components/IncomeExpenseCard/IncomeExpenseCard";
 
 function App() {
+  const [balanceAmount, setBalanceAmount] = useState(0);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalExpense, setTotalExpense] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="root">
+      <p id="title">Expense Tracker</p>
+      <BalanceInquiry balanceAmount={balanceAmount} />
+      <IncomeExpenseCard
+        totalIncome={totalIncome}
+        totalExpense={totalExpense}
+      />
+      <TransactionHistory />
+      <AddTransaction />
     </div>
   );
 }
