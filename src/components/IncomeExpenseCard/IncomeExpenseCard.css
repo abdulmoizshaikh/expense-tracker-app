@@ -1,6 +1,19 @@
 #card {
   display: flex;
-  padding: 20px;
-  box-shadow: 1px 1px 2px;
-  border: 1px solid gray;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  /* border: 1px solid gray; */
+  box-shadow: 1px 1px 10px #888888;
+}
+.cardItem {
+  text-align: center;
+  margin: 0px 10px;
+}
+#income {
+  color: green;
+}
+#expense {
+  color: red;
 }

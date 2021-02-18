@@ -8,11 +8,11 @@ const IncomeExpenseCard = (props) => {
       <div id="card">
         <div className="cardItem">
           <p>INCOME</p>
-          <p className="income">{totalIncome && totalIncome}</p>
+          <p id="income">{totalIncome && totalIncome}</p>
         </div>
         <div className="cardItem">
           <p>EXPENSE</p>
-          <p className="expense">{totalExpense && totalExpense}</p>
+          <p id="expense">{totalExpense && totalExpense}</p>
         </div>
       </div>
     </div>
