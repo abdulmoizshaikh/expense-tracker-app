@@ -8,9 +8,8 @@ import "./App.css";
 export const RootContext = createContext();
 
 export default function App() {
-  const [balanceAmount, setBalanceAmount] = useState(100);
-  const [totalIncome, setTotalIncome] = useState(50);
-  const [totalExpense, setTotalExpense] = useState(30);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalExpense, setTotalExpense] = useState(0);
   const [allTransactions, setAllTransaction] = useState([
     {
       _id: 1,
@@ -22,7 +21,6 @@ export default function App() {
   return (
     <RootContext.Provider
       value={{
-        balance: [balanceAmount, setBalanceAmount],
         income: [totalIncome, setTotalIncome],
         expense: [totalExpense, setTotalExpense],
         transaction: [allTransactions, setAllTransaction],

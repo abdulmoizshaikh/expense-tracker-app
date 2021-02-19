@@ -9,6 +9,8 @@ const AddTransaction = () => {
   // nested array destructuring with default values
   const {
     transaction: [allTransactions = [], setAllTransaction = {}],
+    income: [totalIncome, setTotalIncome],
+    expense: [totalExpense, setTotalExpense],
   } = state;
 
   // methods
@@ -19,8 +21,17 @@ const AddTransaction = () => {
       value: amount,
     };
     setAllTransaction([...allTransactions, transaction]);
+    updateIncomeExpense();
     setText("");
     setAmount("");
+  };
+
+  const updateIncomeExpense = () => {
+    if (amount > 0) {
+      setTotalIncome(totalIncome + parseFloat(amount));
+    } else {
+      setTotalExpense(totalExpense + parseFloat(amount));
+    }
   };
 
   return (
