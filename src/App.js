@@ -28,12 +28,14 @@ export default function App() {
         transaction: [allTransactions, setAllTransaction],
       }}
     >
-      <div id="root">
-        <p id="title">Expense Tracker</p>
-        <BalanceInquiry />
-        <IncomeExpenseCard />
-        <TransactionHistory />
-        <AddTransaction />
+      <div id="root-app">
+        <div id="content">
+          <p id="title">Expense Tracker</p>
+          <BalanceInquiry />
+          <IncomeExpenseCard />
+          <TransactionHistory />
+          <AddTransaction />
+        </div>
       </div>
     </RootContext.Provider>
   );

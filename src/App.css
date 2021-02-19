@@ -1,16 +1,30 @@
-#root {
+#root-app {
   background-color: #eee;
-  width: 50%;
+}
+#content {
   margin: 0 auto;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .container {
   margin: 10px 0px;
+  /* background-color: lightblue; */
+  box-sizing: border-box;
 }
 #title {
   font-size: 25px;
   font-weight: bold;
+  margin: 20px 0px;
 }
-
+.MV10 {
+  margin: 10px 0px;
+}
+.bold {
+  font-weight: bold;
+}
 /* .App {
   text-align: center;
 }

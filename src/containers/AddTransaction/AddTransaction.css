@@ -1,0 +1,15 @@
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 30px;
+  border: 1px solid #afa9a9;
+}
+
+#add-t-btn {
+  width: 100%;
+  background-color: #8a2fb5;
+  padding: 10px;
+  color: white;
+  margin: 10px 0px;
+  border: none;
+}

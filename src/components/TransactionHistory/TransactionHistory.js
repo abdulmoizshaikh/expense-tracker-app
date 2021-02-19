@@ -20,7 +20,7 @@ const TransactionHistory = () => {
   } = state;
   return (
     <div className="container">
-      <p>History</p>
+      <p className="bold">History</p>
       <p className="hr" />
 
       {/* rendering transaction items here with name and value */}
