@@ -1,10 +1,8 @@
 #card {
   display: flex;
-  /* padding: 10px; */
   justify-content: center;
   align-items: center;
   background-color: white;
-  /* border: 1px solid gray; */
   box-shadow: 1px 1px 10px #888888;
 }
 .cardItem {
@@ -13,7 +11,15 @@
 }
 #income {
   color: green;
+  font-weight: bold;
 }
 #expense {
   color: red;
+  font-weight: bold;
+}
+
+#v-line {
+  border: 0.25px solid #afa9a9;
+  height: 30px;
+  margin: 0px 20px;
 }

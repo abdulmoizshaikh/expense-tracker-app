@@ -20,6 +20,7 @@ const IncomeExpenseCard = () => {
           <p>INCOME</p>
           <p id="income">{totalIncome}</p>
         </div>
+        <p id="v-line" />
         <div className="cardItem">
           <p>EXPENSE</p>
           <p id="expense">{totalExpense}</p>

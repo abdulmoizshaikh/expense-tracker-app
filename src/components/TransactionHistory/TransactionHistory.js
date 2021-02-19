@@ -3,11 +3,13 @@ import { RootContext } from "../../App";
 import "./TransactionHistory.css";
 
 const TransactionCard = (props) => {
-  const { name, value } = props;
+  const { _id, name, value } = props;
   return (
-    <div id="t-card">
-      <p className="card-item">{name}</p>
-      <p className="card-item">{value}</p>
+    <div id="t-card" className={value < 0 ? "red-border" : "green-border"}>
+      <p className="card-item">
+        {_id}.{name}
+      </p>
+      <p className="card-item">{value}$</p>
     </div>
   );
 };
@@ -16,7 +18,7 @@ const TransactionHistory = () => {
   const state = useContext(RootContext);
   // nested array destructuring with default values
   const {
-    transaction: [allTransactions = [], setAllTransaction = {}],
+    transaction: [allTransactions = []],
   } = state;
   return (
     <div className="container">
@@ -25,8 +27,8 @@ const TransactionHistory = () => {
 
       {/* rendering transaction items here with name and value */}
       <div>
-        {allTransactions.map(({ _id, name, value }) => (
-          <TransactionCard key={_id} name={name} value={value} />
+        {allTransactions.map((_transaction) => (
+          <TransactionCard key={_transaction._id} {..._transaction} />
         ))}
       </div>
     </div>

@@ -9,9 +9,17 @@
   justify-content: space-between;
   background-color: #fff;
   box-shadow: 1px 1px 5px grey;
+  margin: 10px 0px;
 }
 
 .card-item {
-  padding: 0px 5px;
+  padding: 0px 10px;
   text-transform: capitalize;
+}
+
+.red-border {
+  border-right: 5px solid red;
+}
+.green-border {
+  border-right: 5px solid green;
 }
