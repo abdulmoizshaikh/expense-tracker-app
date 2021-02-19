@@ -15,7 +15,6 @@ export default function App() {
   useEffect(() => {
     let _allTransactions = JSON.parse(localStorage.getItem("allTransactions"));
     if (_allTransactions && _allTransactions.length > 0) {
-      console.log("_allTransactions", _allTransactions);
       setAllTransaction(_allTransactions);
       let income = 0;
       let expense = 0;
@@ -26,14 +25,12 @@ export default function App() {
           expense += JSON.parse(item.value);
         }
       });
-      console.log("income,expense", income, expense);
       setTotalIncome(income);
       setTotalExpense(expense);
     }
     return () => {
       // cleanup;
     };
-    // }, []);
   }, []);
 
   return (
