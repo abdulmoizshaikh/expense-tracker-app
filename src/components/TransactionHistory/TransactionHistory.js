@@ -9,11 +9,6 @@ const TransactionHistory = () => {
     transaction: [allTransactions = [], setAllTransaction = []],
   } = state;
 
-  useEffect(() => {
-    let _allTransactions = JSON.parse(localStorage.getItem("allTransactions"));
-    setAllTransaction(_allTransactions);
-  }, []);
-
   const TransactionCard = (props) => {
     let { _id, name, value } = props;
     let splitedValue = JSON.stringify(value).split("-");
@@ -38,9 +33,11 @@ const TransactionHistory = () => {
 
       {/* rendering transaction items here with name and value */}
       <div>
-        {allTransactions.map((_transaction) => (
-          <TransactionCard key={_transaction._id} {..._transaction} />
-        ))}
+        {allTransactions &&
+          allTransactions.length > 0 &&
+          allTransactions.map((_transaction) => (
+            <TransactionCard key={_transaction._id} {..._transaction} />
+          ))}
       </div>
     </div>
   );

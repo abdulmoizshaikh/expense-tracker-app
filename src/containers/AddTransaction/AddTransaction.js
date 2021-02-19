@@ -15,14 +15,20 @@ const AddTransaction = () => {
 
   // methods
   const onAddTransaction = () => {
-    let transaction = {
-      _id: allTransactions[allTransactions.length - 1]._id + 1,
+    let transaction = {};
+    // if (allTransactions && allTransactions.length > 0) {
+    transaction = {
+      _id:
+        allTransactions.length > 0
+          ? allTransactions[allTransactions.length - 1]._id + 1
+          : 1,
       name: text,
       value: amount,
     };
+    // }
     let payload = [...allTransactions, transaction];
     setAllTransaction(payload);
-    // set into localStorage
+    // set into local Storage
     localStorage.setItem("allTransactions", JSON.stringify(payload));
     updateIncomeExpense();
     setText("");

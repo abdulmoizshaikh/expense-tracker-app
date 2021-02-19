@@ -10,28 +10,30 @@ export const RootContext = createContext();
 export default function App() {
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpense, setTotalExpense] = useState(0);
-  const [allTransactions, setAllTransaction] = useState([
-    {
-      _id: 1,
-      name: "Book",
-      value: 23,
-    },
-  ]);
+  const [allTransactions, setAllTransaction] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem(
-      "allTransactions",
-      JSON.stringify([
-        {
-          _id: 1,
-          name: "Book",
-          value: 23,
-        },
-      ])
-    );
+    let _allTransactions = JSON.parse(localStorage.getItem("allTransactions"));
+    if (_allTransactions && _allTransactions.length > 0) {
+      console.log("_allTransactions", _allTransactions);
+      setAllTransaction(_allTransactions);
+      let income = 0;
+      let expense = 0;
+      _allTransactions.map((item) => {
+        if (item.value > 0) {
+          income += JSON.parse(item.value);
+        } else {
+          expense += JSON.parse(item.value);
+        }
+      });
+      console.log("income,expense", income, expense);
+      setTotalIncome(income);
+      setTotalExpense(expense);
+    }
     return () => {
       // cleanup;
     };
+    // }, []);
   }, []);
 
   return (
