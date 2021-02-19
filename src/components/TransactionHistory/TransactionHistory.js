@@ -1,25 +1,36 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { RootContext } from "../../App";
 import "./TransactionHistory.css";
-
-const TransactionCard = (props) => {
-  const { _id, name, value } = props;
-  return (
-    <div id="t-card" className={value < 0 ? "red-border" : "green-border"}>
-      <p className="card-item">
-        {_id}.{name}
-      </p>
-      <p className="card-item">{value}$</p>
-    </div>
-  );
-};
 
 const TransactionHistory = () => {
   const state = useContext(RootContext);
   // nested array destructuring with default values
   const {
-    transaction: [allTransactions = []],
+    transaction: [allTransactions = [], setAllTransaction = []],
   } = state;
+
+  useEffect(() => {
+    let _allTransactions = JSON.parse(localStorage.getItem("allTransactions"));
+    setAllTransaction(_allTransactions);
+  }, []);
+
+  const TransactionCard = (props) => {
+    let { _id, name, value } = props;
+    let splitedValue = JSON.stringify(value).split("-");
+    return (
+      <div id="t-card" className={value < 0 ? "red-border" : "green-border"}>
+        <p className="card-item">
+          {_id}. {name}
+        </p>
+        <p className="card-item">
+          {splitedValue.length > 1
+            ? `-$${parseFloat(splitedValue[1])}`
+            : `$${value}`}
+        </p>
+      </div>
+    );
+  };
+
   return (
     <div className="container">
       <p className="bold">History</p>
@@ -34,4 +45,5 @@ const TransactionHistory = () => {
     </div>
   );
 };
+
 export default TransactionHistory;

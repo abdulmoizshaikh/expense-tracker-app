@@ -20,7 +20,10 @@ const AddTransaction = () => {
       name: text,
       value: amount,
     };
-    setAllTransaction([...allTransactions, transaction]);
+    let payload = [...allTransactions, transaction];
+    setAllTransaction(payload);
+    // set into localStorage
+    localStorage.setItem("allTransactions", JSON.stringify(payload));
     updateIncomeExpense();
     setText("");
     setAmount("");
@@ -57,8 +60,8 @@ const AddTransaction = () => {
         </div>
 
         <input
-          type="text"
           className="input"
+          type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />

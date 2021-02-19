@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import BalanceInquiry from "./components/BalanceInquiry/BalanceInquiry";
 import AddTransaction from "./containers/AddTransaction/AddTransaction";
 import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
@@ -17,6 +17,22 @@ export default function App() {
       value: 23,
     },
   ]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "allTransactions",
+      JSON.stringify([
+        {
+          _id: 1,
+          name: "Book",
+          value: 23,
+        },
+      ])
+    );
+    return () => {
+      // cleanup;
+    };
+  }, []);
 
   return (
     <RootContext.Provider
