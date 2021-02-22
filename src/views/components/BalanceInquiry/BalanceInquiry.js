@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { RootContext } from "../../App";
+import { RootContext } from "../../AppView";
 import "./BalanceInquiry.css";
 
 /**

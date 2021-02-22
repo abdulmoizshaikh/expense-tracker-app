@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { RootContext } from "../../App";
+import { RootContext } from "../../AppView";
 import "./TransactionHistory.css";
 
 const TransactionHistory = () => {

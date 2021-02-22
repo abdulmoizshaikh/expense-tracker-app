@@ -1,45 +1,50 @@
 import React, { useContext, useState } from "react";
-import { RootContext } from "../../App";
+// import { RootContext } from "../../views/AppView";
 import "./AddTransaction.css";
 
-const AddTransaction = () => {
+const AddTransaction = (props) => {
+  console.log("props", props);
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
-  const state = useContext(RootContext);
+  // const state = useContext(RootContext);
   // nested array destructuring with default values
-  const {
-    transaction: [allTransactions = [], setAllTransaction = {}],
-    income: [totalIncome, setTotalIncome],
-    expense: [totalExpense, setTotalExpense],
-  } = state;
+  // const {
+  //   transaction: [allTransactions = [], setAllTransaction = {}],
+  //   income: [totalIncome, setTotalIncome],
+  //   expense: [totalExpense, setTotalExpense],
+  // } = state;
 
   // methods
   const onAddTransaction = () => {
     let transaction = {};
     // if (allTransactions && allTransactions.length > 0) {
-    transaction = {
-      _id:
-        allTransactions.length > 0
-          ? allTransactions[allTransactions.length - 1]._id + 1
-          : 1,
-      name: text,
-      value: amount,
-    };
-    // }
-    let payload = [...allTransactions, transaction];
-    setAllTransaction(payload);
-    // set into local Storage
-    localStorage.setItem("allTransactions", JSON.stringify(payload));
-    updateIncomeExpense();
+    // transaction = {
+    //   _id:
+    //     allTransactions.length > 0
+    //       ? allTransactions[allTransactions.length - 1]._id + 1
+    //       : 1,
+    //   name: text,
+    //   value: amount,
+    // };
+    // // }
+    // let payload = [...allTransactions, transaction];
+    // setAllTransaction(payload);
+    // // set into local Storage
+    // localStorage.setItem("allTransactions", JSON.stringify(payload));
+    // updateIncomeExpense();
+
+    // action
+    props.onAddTransaction();
+
     setText("");
     setAmount("");
   };
 
   const updateIncomeExpense = () => {
     if (amount > 0) {
-      setTotalIncome(totalIncome + parseFloat(amount));
+      // setTotalIncome(totalIncome + parseFloat(amount));
     } else {
-      setTotalExpense(totalExpense + parseFloat(amount));
+      // setTotalExpense(totalExpense + parseFloat(amount));
     }
   };
 

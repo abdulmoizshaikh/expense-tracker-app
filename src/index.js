@@ -1,16 +1,18 @@
+"use strict";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import AppContainer from "./containers/AppContainer";
 import reportWebVitals from "./reportWebVitals";
 import { debugContextDevtool } from "react-context-devtool";
 
 const container = document.getElementById("root");
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <AppContainer />,
+  // </React.StrictMode>
   container
 );
 
@@ -20,9 +22,9 @@ ReactDOM.render(
 reportWebVitals();
 
 // configure react context devtool for development
-let options = {
-  debugReducer: true, //by default true
-  debugContext: true, //by default true
-};
+// let options = {
+//   debugReducer: true, //by default true
+//   debugContext: true, //by default true
+// };
 
-debugContextDevtool(container, options);
+// debugContextDevtool(container, options);

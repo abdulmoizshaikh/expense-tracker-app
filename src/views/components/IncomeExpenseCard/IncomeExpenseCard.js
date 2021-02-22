@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { RootContext } from "../../App";
+import { RootContext } from "../../AppView";
 import "./IncomeExpenseCard.css";
 
 /*
