@@ -11,10 +11,10 @@
 
 import AppView from "../views/AppView";
 import { Container } from "flux/utils";
-import TodoActions from "../data/TodoActions";
-import TodoDraftStore from "../data/TodoDraftStore";
-import TodoEditStore from "../data/TodoEditStore";
-import TodoStore from "../data/TodoStore";
+import TodoActions from "../data/action/TodoActions";
+import TodoDraftStore from "../data/store/TodoDraftStore";
+import TodoEditStore from "../data/store/TodoEditStore";
+import TodoStore from "../data/store/TodoStore";
 
 function getStores() {
   return [TodoEditStore, TodoDraftStore, TodoStore];
@@ -22,19 +22,22 @@ function getStores() {
 
 function getState() {
   return {
-    draft: TodoDraftStore.getState(),
-    editing: TodoEditStore.getState(),
-    todos: TodoStore.getState(),
+    // draft: TodoDraftStore.getState(),
+    // editing: TodoEditStore.getState(),
+    // todos: TodoStore.getState(),
 
-    onAdd: TodoActions.addTodo,
-    onDeleteCompletedTodos: TodoActions.deleteCompletedTodos,
-    onDeleteTodo: TodoActions.deleteTodo,
-    onEditTodo: TodoActions.editTodo,
-    onStartEditingTodo: TodoActions.startEditingTodo,
-    onStopEditingTodo: TodoActions.stopEditingTodo,
-    onToggleAllTodos: TodoActions.toggleAllTodos,
-    onToggleTodo: TodoActions.toggleTodo,
-    onUpdateDraft: TodoActions.updateDraft,
+    // onAdd: TodoActions.addTodo,
+    // onDeleteCompletedTodos: TodoActions.deleteCompletedTodos,
+    // onDeleteTodo: TodoActions.deleteTodo,
+    // onEditTodo: TodoActions.editTodo,
+    // onStartEditingTodo: TodoActions.startEditingTodo,
+    // onStopEditingTodo: TodoActions.stopEditingTodo,
+    // onToggleAllTodos: TodoActions.toggleAllTodos,
+    // onToggleTodo: TodoActions.toggleTodo,
+    // onUpdateDraft: TodoActions.updateDraft,
+
+    // custom state
+
     // custom actions
     onAddTransaction: TodoActions.addTransaction,
   };

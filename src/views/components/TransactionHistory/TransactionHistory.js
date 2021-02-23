@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react";
-import { RootContext } from "../../AppView";
+// import { RootContext } from "../../AppView";
 import "./TransactionHistory.css";
 
 const TransactionHistory = () => {
-  const state = useContext(RootContext);
-  // nested array destructuring with default values
-  const {
-    transaction: [allTransactions = [], setAllTransaction = []],
-  } = state;
+  // const state = useContext(RootContext);
+  // // nested array destructuring with default values
+  // const {
+  //   transaction: [allTransactions = [], setAllTransaction = []],
+  // } = state;
 
   const TransactionCard = (props) => {
     let { _id, name, value } = props;
@@ -32,13 +32,13 @@ const TransactionHistory = () => {
       <p className="hr" />
 
       {/* rendering transaction items here with name and value */}
-      <div>
+      {/* <div>
         {allTransactions &&
           allTransactions.length > 0 &&
           allTransactions.map((_transaction) => (
             <TransactionCard key={_transaction._id} {..._transaction} />
           ))}
-      </div>
+      </div> */}
     </div>
   );
 };

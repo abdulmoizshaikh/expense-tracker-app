@@ -9,18 +9,10 @@
 
 "use strict";
 
-import TodoActionTypes from "./TodoActionTypes";
-import TodoDispatcher from "./TodoDispatcher";
+import TodoActionTypes from "../actionTypes/TodoActionTypes";
+import TodoDispatcher from "../dispatcher/TodoDispatcher";
 
 const Actions = {
-  addTransaction(data) {
-    console.log("data in addTransaction action", data);
-    TodoDispatcher.dispatch({
-      type: TodoActionTypes.ADD_TRANSACTION,
-      data,
-    });
-  },
-
   addTodo(text) {
     TodoDispatcher.dispatch({
       type: TodoActionTypes.ADD_TODO,

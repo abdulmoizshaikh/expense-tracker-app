@@ -7,14 +7,14 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-'use strict';
+"use strict";
 
-import Counter from './Counter';
-import Immutable from 'immutable';
-import {ReduceStore} from 'flux/utils';
-import Todo from './Todo';
-import TodoActionTypes from './TodoActionTypes';
-import TodoDispatcher from './TodoDispatcher';
+import Counter from "../Counter";
+import Immutable from "immutable";
+import { ReduceStore } from "flux/utils";
+import Todo from "../Todo";
+import TodoActionTypes from "../actionTypes/TodoActionTypes";
+import TodoDispatcher from "../dispatcher/TodoDispatcher";
 
 class TodoStore extends ReduceStore {
   constructor() {
@@ -33,29 +33,31 @@ class TodoStore extends ReduceStore {
           return state;
         }
         const id = Counter.increment();
-        return state.set(id, new Todo({
+        return state.set(
           id,
-          text: action.text,
-          complete: false,
-        }));
+          new Todo({
+            id,
+            text: action.text,
+            complete: false,
+          })
+        );
 
       case TodoActionTypes.DELETE_COMPLETED_TODOS:
-        return state.filter(todo => !todo.complete);
+        return state.filter((todo) => !todo.complete);
 
       case TodoActionTypes.DELETE_TODO:
         return state.delete(action.id);
 
       case TodoActionTypes.EDIT_TODO:
-        return state.setIn([action.id, 'text'], action.text);
+        return state.setIn([action.id, "text"], action.text);
 
       case TodoActionTypes.TOGGLE_ALL_TODOS:
-        const areAllComplete = state.every(todo => todo.complete);
-        return state.map(todo => todo.set('complete', !areAllComplete));
+        const areAllComplete = state.every((todo) => todo.complete);
+        return state.map((todo) => todo.set("complete", !areAllComplete));
 
       case TodoActionTypes.TOGGLE_TODO:
-        return state.update(
-          action.id,
-          todo => todo.set('complete', !todo.complete),
+        return state.update(action.id, (todo) =>
+          todo.set("complete", !todo.complete)
         );
 
       default:

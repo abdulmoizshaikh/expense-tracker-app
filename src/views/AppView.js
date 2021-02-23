@@ -1,8 +1,8 @@
 import React, { useState, createContext, useEffect } from "react";
-// import BalanceInquiry from "./components/BalanceInquiry/BalanceInquiry";
+import BalanceInquiry from "./components/BalanceInquiry/BalanceInquiry";
 import AddTransaction from "../containers/AddTransaction/AddTransaction";
-// import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
-// import IncomeExpenseCard from "./components/IncomeExpenseCard/IncomeExpenseCard";
+import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
+import IncomeExpenseCard from "./components/IncomeExpenseCard/IncomeExpenseCard";
 import "./App.css";
 
 // export const RootContext = createContext();
@@ -43,9 +43,9 @@ export default function App(props) {
     // >
     <div id="content">
       <p id="title">Expense Tracker</p>
-      {/* <BalanceInquiry /> */}
-      {/* <IncomeExpenseCard /> */}
-      {/* <TransactionHistory /> */}
+      <BalanceInquiry {...props} />
+      <IncomeExpenseCard {...props} />
+      <TransactionHistory {...props} />
       <AddTransaction {...props} />
     </div>
     // </RootContext.Provider>

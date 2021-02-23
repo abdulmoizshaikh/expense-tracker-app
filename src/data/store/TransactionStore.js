@@ -7,28 +7,25 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-'use strict';
+"use strict";
 
-import {ReduceStore} from 'flux/utils';
-import TodoActionTypes from './TodoActionTypes';
-import TodoDispatcher from './TodoDispatcher';
+import { ReduceStore } from "flux/utils";
+import TodoActionTypes from "../actionTypes/TransactionActionTypes";
+import TransactionDispatcher from "../dispatcher/TransactionDispatcher";
 
-class TodoEditStore extends ReduceStore {
+class TransactionStore extends ReduceStore {
   constructor() {
-    super(TodoDispatcher);
+    super(TransactionDispatcher);
   }
 
   getInitialState() {
-    return '';
+    return "";
   }
 
   reduce(state, action) {
     switch (action.type) {
-      case TodoActionTypes.START_EDITING_TODO:
-        return action.id;
-
-      case TodoActionTypes.STOP_EDITING_TODO:
-        return '';
+      case TodoActionTypes.ADD_TRANSACTION:
+        return "";
 
       default:
         return state;
@@ -36,4 +33,4 @@ class TodoEditStore extends ReduceStore {
   }
 }
 
-export default new TodoEditStore();
+export default new TransactionStore();

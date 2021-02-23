@@ -19,8 +19,6 @@ const ActionTypes = {
   TOGGLE_ALL_TODOS: "TOGGLE_ALL_TODOS",
   TOGGLE_TODO: "TOGGLE_TODO",
   UPDATE_DRAFT: "UPDATE_DRAFT",
-  // my actions
-  ADD_TRANSACTION: "ADD_TRANSACTION",
 };
 
 export default ActionTypes;
