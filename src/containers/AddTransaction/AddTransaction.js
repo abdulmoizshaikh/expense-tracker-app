@@ -4,12 +4,6 @@ import "./AddTransaction.css";
 const AddTransaction = (props) => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
-  // nested array destructuring with default values
-  // const {
-  //   transaction: [allTransactions = [], setAllTransaction = {}],
-  //   income: [totalIncome, setTotalIncome],
-  //   expense: [totalExpense, setTotalExpense],
-  // } = state;
 
   // nested array destructuring with default values
   const {
@@ -28,11 +22,6 @@ const AddTransaction = (props) => {
         name: text,
         value: amount,
       };
-      // }
-      // let payload = [...allTransactions, transaction];
-      // setAllTransaction(payload);
-      // // set into local Storage
-      // localStorage.setItem("allTransactions", JSON.stringify(payload));
       updateIncomeExpense();
 
       // action

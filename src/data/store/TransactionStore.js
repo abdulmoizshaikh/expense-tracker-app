@@ -29,12 +29,22 @@ class TransactionStore extends ReduceStore {
   reduce(state, action) {
     let updatedState = {};
     switch (action.type) {
+      case TodoActionTypes.SET_ALL_TRANSACTIONS:
+        updatedState = {
+          ...state,
+          allTransactions: [...state.allTransactions, ...action.payload],
+        };
+        return updatedState;
+
       case TodoActionTypes.ADD_TRANSACTION:
         updatedState = {
           ...state,
           allTransactions: [...state.allTransactions, action.payload],
         };
-        localStorage.setItem("allTransactions", JSON.stringify(updatedState));
+        localStorage.setItem(
+          "allTransactions",
+          JSON.stringify(updatedState.allTransactions)
+        );
         return updatedState;
 
       case TodoActionTypes.SET_TOTAL_INCOME:
@@ -42,7 +52,6 @@ class TransactionStore extends ReduceStore {
           ...state,
           totalIncome: action.payload,
         };
-        // localStorage.setItem("allTransactions", JSON.stringify(updatedState));
         return updatedState;
 
       case TodoActionTypes.SET_TOTAL_EXPENSE:
@@ -50,7 +59,6 @@ class TransactionStore extends ReduceStore {
           ...state,
           totalExpense: action.payload,
         };
-        // localStorage.setItem("allTransactions", JSON.stringify(updatedState));
         return updatedState;
 
       default:

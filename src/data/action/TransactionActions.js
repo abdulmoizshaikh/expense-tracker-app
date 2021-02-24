@@ -9,6 +9,13 @@ const Actions = {
     });
   },
 
+  setAllTransactions(payload) {
+    TransactionDispatcher.dispatch({
+      type: ActionTypes.SET_ALL_TRANSACTIONS,
+      payload,
+    });
+  },
+
   setTotalIncome(payload) {
     TransactionDispatcher.dispatch({
       type: ActionTypes.SET_TOTAL_INCOME,

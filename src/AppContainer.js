@@ -42,6 +42,7 @@ function getState() {
 
     // custom actions
     addTransaction: TransactionActions.addTransaction,
+    setAllTransactions: TransactionActions.setAllTransactions,
     setTotalIncome: TransactionActions.setTotalIncome,
     setTotalExpense: TransactionActions.setTotalExpense,
   };
