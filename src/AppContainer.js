@@ -11,13 +11,12 @@
 
 import App from "./containers/App/App";
 import { Container } from "flux/utils";
-import TodoActions from "./data/action/TodoActions";
-import TodoDraftStore from "./data/store/TodoDraftStore";
-import TodoEditStore from "./data/store/TodoEditStore";
-import TodoStore from "./data/store/TodoStore";
+import TransactionActions from "./data/action/TransactionActions";
+import TransactionStore from "./data/store/TransactionStore";
 
 function getStores() {
-  return [TodoEditStore, TodoDraftStore, TodoStore];
+  // return [TodoEditStore, TodoDraftStore, TodoStore];
+  return [TransactionStore];
 }
 
 function getState() {
@@ -38,8 +37,13 @@ function getState() {
 
     // custom state
 
+    // getting store
+    state: TransactionStore.getState(),
+
     // custom actions
-    onAddTransaction: TodoActions.addTransaction,
+    addTransaction: TransactionActions.addTransaction,
+    setTotalIncome: TransactionActions.setTotalIncome,
+    setTotalExpense: TransactionActions.setTotalExpense,
   };
 }
 

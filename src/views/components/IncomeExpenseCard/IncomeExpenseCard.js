@@ -1,4 +1,3 @@
-// import { useContext } from "react";
 import "./IncomeExpenseCard.css";
 
 /*
@@ -10,7 +9,7 @@ const IncomeExpenseCard = (props) => {
   //   income: [totalIncome = 0, setTotalIncome = {}],
   //   expense: [totalExpense = 0, setTotalExpense = {}],
   // } = state;
-  console.log("props in IncomeExpenseCard", props);
+  // console.log("props in IncomeExpenseCard", props);
   return (
     <div className="container">
       <div id="card">

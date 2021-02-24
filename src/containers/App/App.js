@@ -6,7 +6,7 @@ import IncomeExpenseCard from "../../views/components/IncomeExpenseCard/IncomeEx
 import "./App.css";
 
 export default function App(props) {
-  console.log("props in app", props);
+  // console.log("props in app", props);
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpense, setTotalExpense] = useState(0);
   const [allTransactions, setAllTransaction] = useState([]);

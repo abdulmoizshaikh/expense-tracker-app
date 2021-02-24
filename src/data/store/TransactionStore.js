@@ -19,13 +19,41 @@ class TransactionStore extends ReduceStore {
   }
 
   getInitialState() {
-    return "";
+    return {
+      allTransactions: [],
+      totalIncome: 0,
+      totalExpense: 0,
+    };
   }
 
   reduce(state, action) {
+    let updatedState = {};
     switch (action.type) {
       case TodoActionTypes.ADD_TRANSACTION:
-        return "";
+        updatedState = {
+          ...state,
+          allTransactions: [...state.allTransactions, action.payload],
+        };
+        localStorage.setItem("allTransactions", JSON.stringify(updatedState));
+        return updatedState;
+
+      case TodoActionTypes.SET_TOTAL_INCOME:
+        console.log("in SET_TOTAL_INCOME");
+        updatedState = {
+          ...state,
+          totalIncome: action.payload,
+        };
+        // localStorage.setItem("allTransactions", JSON.stringify(updatedState));
+        return updatedState;
+
+      case TodoActionTypes.SET_TOTAL_EXPENSE:
+        console.log("in setTotalExpense");
+        updatedState = {
+          ...state,
+          totalExpense: action.payload,
+        };
+        // localStorage.setItem("allTransactions", JSON.stringify(updatedState));
+        return updatedState;
 
       default:
         return state;

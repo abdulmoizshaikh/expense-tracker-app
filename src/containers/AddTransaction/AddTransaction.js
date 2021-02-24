@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./AddTransaction.css";
 
 const AddTransaction = (props) => {
-  console.log("props", props);
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
   // nested array destructuring with default values
@@ -12,37 +11,45 @@ const AddTransaction = (props) => {
   //   expense: [totalExpense, setTotalExpense],
   // } = state;
 
+  // nested array destructuring with default values
+  const {
+    setTotalIncome,
+    setTotalExpense,
+    state: { allTransactions = [], totalIncome = 0, totalExpense = 0 } = {},
+  } = props;
+
   // methods
   const onAddTransaction = () => {
-    let transaction = {};
-    // if (allTransactions && allTransactions.length > 0) {
-    // transaction = {
-    //   _id:
-    //     allTransactions.length > 0
-    //       ? allTransactions[allTransactions.length - 1]._id + 1
-    //       : 1,
-    //   name: text,
-    //   value: amount,
-    // };
-    // // }
-    // let payload = [...allTransactions, transaction];
-    // setAllTransaction(payload);
-    // // set into local Storage
-    // localStorage.setItem("allTransactions", JSON.stringify(payload));
-    // updateIncomeExpense();
+    if (text && amount) {
+      let transaction = {};
+      // if (allTransactions && allTransactions.length > 0) {
+      transaction = {
+        _id: allTransactions.length > 0 ? allTransactions.length + 1 : 1,
+        name: text,
+        value: amount,
+      };
+      // }
+      // let payload = [...allTransactions, transaction];
+      // setAllTransaction(payload);
+      // // set into local Storage
+      // localStorage.setItem("allTransactions", JSON.stringify(payload));
+      updateIncomeExpense();
 
-    // action
-    props.onAddTransaction();
+      // action
+      props.addTransaction(transaction);
 
-    setText("");
-    setAmount("");
+      setText("");
+      setAmount("");
+    } else {
+      alert("Fields cannot be empty");
+    }
   };
 
   const updateIncomeExpense = () => {
     if (amount > 0) {
-      // setTotalIncome(totalIncome + parseFloat(amount));
+      setTotalIncome(totalIncome + parseFloat(amount));
     } else {
-      // setTotalExpense(totalExpense + parseFloat(amount));
+      setTotalExpense(totalExpense + parseFloat(amount));
     }
   };
 

@@ -7,7 +7,7 @@ import "./BalanceInquiry.css";
 
 class BalanceInquiry extends Component {
   render() {
-    console.log("this.props in BalanceInquiry", this.props);
+    // console.log("this.props in BalanceInquiry", this.props);
     // return (
     // {(state) => {
     // nested array destructuring with default values
