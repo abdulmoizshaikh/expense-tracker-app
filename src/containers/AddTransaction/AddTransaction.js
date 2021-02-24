@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
-// import { RootContext } from "../../views/AppView";
 import "./AddTransaction.css";
 
 const AddTransaction = (props) => {
   console.log("props", props);
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
-  // const state = useContext(RootContext);
   // nested array destructuring with default values
   // const {
   //   transaction: [allTransactions = [], setAllTransaction = {}],

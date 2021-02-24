@@ -1,9 +1,7 @@
 import React, { useContext, useEffect } from "react";
-// import { RootContext } from "../../AppView";
 import "./TransactionHistory.css";
 
 const TransactionHistory = () => {
-  // const state = useContext(RootContext);
   // // nested array destructuring with default values
   // const {
   //   transaction: [allTransactions = [], setAllTransaction = []],

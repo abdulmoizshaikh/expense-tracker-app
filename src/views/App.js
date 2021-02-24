@@ -5,12 +5,11 @@ import TransactionHistory from "./components/TransactionHistory/TransactionHisto
 import IncomeExpenseCard from "./components/IncomeExpenseCard/IncomeExpenseCard";
 import "./App.css";
 
-// export const RootContext = createContext();
-
 export default function App(props) {
-  // const [totalIncome, setTotalIncome] = useState(0);
-  // const [totalExpense, setTotalExpense] = useState(0);
-  // const [allTransactions, setAllTransaction] = useState([]);
+  console.log("props in app", props);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalExpense, setTotalExpense] = useState(0);
+  const [allTransactions, setAllTransaction] = useState([]);
 
   // useEffect(() => {
   //   let _allTransactions = JSON.parse(localStorage.getItem("allTransactions"));
@@ -34,13 +33,6 @@ export default function App(props) {
   // }, []);
 
   return (
-    // <RootContext.Provider
-    //   value={{
-    //     income: [totalIncome, setTotalIncome],
-    //     expense: [totalExpense, setTotalExpense],
-    //     transaction: [allTransactions, setAllTransaction],
-    //   }}
-    // >
     <div id="content">
       <p id="title">Expense Tracker</p>
       <BalanceInquiry {...props} />
@@ -48,6 +40,5 @@ export default function App(props) {
       <TransactionHistory {...props} />
       <AddTransaction {...props} />
     </div>
-    // </RootContext.Provider>
   );
 }

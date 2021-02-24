@@ -9,7 +9,7 @@
 
 "use strict";
 
-import AppView from "../views/AppView";
+import App from "../views/App";
 import { Container } from "flux/utils";
 import TodoActions from "../data/action/TodoActions";
 import TodoDraftStore from "../data/store/TodoDraftStore";
@@ -42,5 +42,7 @@ function getState() {
     onAddTransaction: TodoActions.addTransaction,
   };
 }
+
+const AppView = (props) => <App {...props} />;
 
 export default Container.createFunctional(AppView, getStores, getState);

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { RootContext } from "../../AppView";
 import "./BalanceInquiry.css";
 
 /**
@@ -7,16 +6,21 @@ import "./BalanceInquiry.css";
  */
 
 class BalanceInquiry extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      totalIncome: 0,
+    };
+  }
+
   render() {
-    console.log("this.props in BalanceInquiry", this.props);
-    return <div>hwllo world</div>;
+    return <div>totalIncome {this.state.totalIncome}</div>;
   }
 }
 
 export default BalanceInquiry;
 
 /* // return (
-    // <RootContext.Consumer>
     //   {(state) => {
     //     // nested array destructuring with default values
     //     const {
@@ -36,5 +40,4 @@ export default BalanceInquiry;
     //       </div>
     //     );
     //   }}
-    // </RootContext.Consumer>
     // ); */
