@@ -1,13 +1,7 @@
-import React, { useEffect } from "react";
 import "./TransactionHistory.css";
 
 const TransactionHistory = (props) => {
-  // // nested array destructuring with default values
-  // const {
-  //   transaction: [allTransactions = [], setAllTransaction = []],
-  // } = state;
-
-  // // nested array destructuring with default values
+  // nested array destructuring with default values
   const { state: { allTransactions = [] } = {} } = props;
 
   const TransactionCard = (props) => {
