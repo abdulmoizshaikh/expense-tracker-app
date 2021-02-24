@@ -38,7 +38,6 @@ class TransactionStore extends ReduceStore {
         return updatedState;
 
       case TodoActionTypes.SET_TOTAL_INCOME:
-        console.log("in SET_TOTAL_INCOME");
         updatedState = {
           ...state,
           totalIncome: action.payload,
@@ -47,7 +46,6 @@ class TransactionStore extends ReduceStore {
         return updatedState;
 
       case TodoActionTypes.SET_TOTAL_EXPENSE:
-        console.log("in setTotalExpense");
         updatedState = {
           ...state,
           totalExpense: action.payload,

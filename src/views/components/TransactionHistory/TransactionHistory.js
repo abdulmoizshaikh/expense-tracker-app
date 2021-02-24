@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import "./TransactionHistory.css";
 
-const TransactionHistory = () => {
+const TransactionHistory = (props) => {
   // // nested array destructuring with default values
   // const {
   //   transaction: [allTransactions = [], setAllTransaction = []],
   // } = state;
+
+  // // nested array destructuring with default values
+  const { state: { allTransactions = [] } = {} } = props;
 
   const TransactionCard = (props) => {
     let { _id, name, value } = props;
@@ -30,13 +33,13 @@ const TransactionHistory = () => {
       <p className="hr" />
 
       {/* rendering transaction items here with name and value */}
-      {/* <div>
+      <div>
         {allTransactions &&
           allTransactions.length > 0 &&
           allTransactions.map((_transaction) => (
             <TransactionCard key={_transaction._id} {..._transaction} />
           ))}
-      </div> */}
+      </div>
     </div>
   );
 };
