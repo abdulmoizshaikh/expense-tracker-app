@@ -9,12 +9,12 @@
 
 "use strict";
 
-import App from "../views/App";
+import App from "./containers/App/App";
 import { Container } from "flux/utils";
-import TodoActions from "../data/action/TodoActions";
-import TodoDraftStore from "../data/store/TodoDraftStore";
-import TodoEditStore from "../data/store/TodoEditStore";
-import TodoStore from "../data/store/TodoStore";
+import TodoActions from "./data/action/TodoActions";
+import TodoDraftStore from "./data/store/TodoDraftStore";
+import TodoEditStore from "./data/store/TodoEditStore";
+import TodoStore from "./data/store/TodoStore";
 
 function getStores() {
   return [TodoEditStore, TodoDraftStore, TodoStore];

@@ -1,8 +1,8 @@
 import React, { useState, createContext, useEffect } from "react";
-import BalanceInquiry from "./components/BalanceInquiry/BalanceInquiry";
-import AddTransaction from "../containers/AddTransaction/AddTransaction";
-import TransactionHistory from "./components/TransactionHistory/TransactionHistory";
-import IncomeExpenseCard from "./components/IncomeExpenseCard/IncomeExpenseCard";
+import BalanceInquiry from "../../views/components/BalanceInquiry/BalanceInquiry";
+import AddTransaction from "../AddTransaction/AddTransaction";
+import TransactionHistory from "../../views/components/TransactionHistory/TransactionHistory";
+import IncomeExpenseCard from "../../views/components/IncomeExpenseCard/IncomeExpenseCard";
 import "./App.css";
 
 export default function App(props) {
